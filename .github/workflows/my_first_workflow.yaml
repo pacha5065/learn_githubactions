@@ -16,6 +16,12 @@ jobs:
         echo "Hello, How are you" >> hello.txt
         ls -lrta | grep -i hello
     
+    - name: upload hello.txt
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello-artifact
+        path: hello.txt
+    
   second_job:
     needs: first_job
     runs-on: ubuntu-latest
@@ -24,7 +30,10 @@ jobs:
       uses: actions/checkout@v4
 
     - name: view hello.txt
-      run: cat hello.txt
+      uses: actions/download-artifact@v4
+      with:
+        name: hello-artifact
+    - run: cat hello.txt
 
     - name: install third pary
       run: sudo apt-get install cowsay -y
