@@ -27,6 +27,6 @@ jobs:
     
     - name: execute cowsay cmd
       run: |
-        cowsay -f dragon "Run for your life... I am a drgaon" >> drgaon.txt
+        cowsay -f dragon "Run for your life... I am a drgaon" >> dragon.txt
         grep -i "dragon" dragon.txt
         cat dragon.txt
