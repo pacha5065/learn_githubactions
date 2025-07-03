@@ -30,4 +30,4 @@ jobs:
         cowsay -f dragon "Run for your life... I am a drgaon" >> dragon.txt
         ls -lrta
         # grep -i "dragon" dragon.txt
-        # cat dragon.txt
+        cat dragon.txt
