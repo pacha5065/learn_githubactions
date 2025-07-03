@@ -34,7 +34,7 @@ jobs:
         cat dragon.txt
 
   third_job:
-    needs: [first_job, second_job]
+    needs: first_job
     runs-on: ubuntu-latest
     steps:
     - name: test job to list files
