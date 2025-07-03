@@ -57,9 +57,9 @@ jobs:
     - name: test job to list files
       run: ls -lrta
 
-    - name: view dragon.txt
-      run: cat dragon.txt
-
     - uses: actions/download-artifact@v4
       with:
         name: dragon-file
+    
+    - name: view dragon.txt
+      run: cat dragon.txt
