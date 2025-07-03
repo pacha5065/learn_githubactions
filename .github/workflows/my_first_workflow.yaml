@@ -10,11 +10,23 @@ jobs:
     - name: checkout
       uses: actions/checkout@v4
     
-    - name: list file
-      run: ls -lrta
+    - name: list file, print text and grep for it
+      run: |
+        ls -lrta
+        echo "Hello, How are you" >> hello.txt
+        ls -lrta | grep -i hello
+    
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
 
-    - name: print text
-      run: echo "Hello, How are you" >> hello.txt
-
-    - name: file exists
-      run: ls -lrta | grep -i hello
+    - name: install third pary
+      run: sudo apt-get install cowsay -y
+    
+    - name: execute cowsay cmd
+      run: |
+        cowsay -f dragon "Run for your life... I am a drgaon" >> drgaon.txt
+        grep -i "dragon" dragon.txt
+        cat dragon.txt
