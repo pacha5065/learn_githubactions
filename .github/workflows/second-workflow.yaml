@@ -14,5 +14,7 @@ jobs:
       run: ls -lrta
 
     - name: shell execute
-      run: ./shell-script.sh
+      run: |
+        chmod +x shell-script.sh
+        ./shell-script.sh
       
