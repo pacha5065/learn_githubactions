@@ -1,0 +1,14 @@
+name: env variables test
+
+on:
+    push
+
+env:
+    USERNAME: prem
+    PASSWORD: kumar
+jobs:
+    env_variables_substituion:
+        runs-on: ubuntu-latest
+        steps:
+        - name: docker login
+          run: echo docker login --username {{ env.USERNAME }} --password $PASSWORD
