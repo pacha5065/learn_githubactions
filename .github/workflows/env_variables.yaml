@@ -4,15 +4,13 @@ on:
     push
 
 env:
-    DockerUsername: prem
-    Dockerpassword: kumar
     CONTAINER_REGISTRY: harbor
 jobs:
     env_variables_substituion:
         runs-on: ubuntu-latest
         steps:
         - name: docker login
-          run: echo docker login --username ${{ env.DockerUsername }} --password=$Dockerpassword
+          run: echo docker login --username ${{ vars.DockerUsername }} --password=${{ secrets.DOCKERPASSWORD }}
         
         - name: docker build
-          run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/$DockerUsername:LATEST
+          run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ vars.DockerUsername }}:LATEST
