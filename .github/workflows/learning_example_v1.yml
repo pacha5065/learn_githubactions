@@ -1,0 +1,36 @@
+name: learning exmple v1
+
+on:
+    workflow_dispatch:
+    push:
+        paths-ignore: 
+        - README.md
+        branches: 
+        - feature/*
+        - main
+    pull_request: 
+        branches: 
+        - main
+        types: 
+        - opened
+        - closed
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout
+          uses: actions/checkout@v4
+          
+        - run: echo "Simple workflow test"
+
+    job2:
+        runs-on: ubuntu-18.04
+        needs: job1
+        concurrency: 
+            cancel-in-progress: true
+            group: test-group
+        steps:
+        - run: sleep 60
+
+        
