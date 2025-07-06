@@ -1,0 +1,15 @@
+name: learning github actions
+
+on:
+    workflow_dispatch: 
+    push:
+        branches: 
+            - feature/*
+    pull_request: 
+        branches: main    
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: test simple workflow
+          run: echo 'simple workflow'
