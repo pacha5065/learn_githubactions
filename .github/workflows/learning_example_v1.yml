@@ -3,6 +3,8 @@ name: learning exmple v1
 on:
     workflow_dispatch:
     push:
+        paths-ignore: 
+        - README.md
         branches: 
         - feature/*
         - main
