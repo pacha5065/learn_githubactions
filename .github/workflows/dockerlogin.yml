@@ -1,0 +1,18 @@
+name: docker login test
+
+on: 
+    push:
+        branches: main
+
+jobs:
+    docker:
+        runs-on: ubuntu-22.04
+        steps:
+        - name: checkout
+          uses: actions/checkout@v3
+
+        - name: docker login
+          uses: docker/login-action@v3
+          with:
+            username: ${{vars.DOCKERUSERNAME}}
+            password: ${{secrets.DOCKERPASSWORD}}
