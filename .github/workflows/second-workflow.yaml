@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
     
+concurrency:
+  group: concurrncy-group
+  cancel-in-progress: true   
 
 jobs:
   job1:
@@ -17,9 +20,7 @@ jobs:
 
   job2:
     needs: job1
-    concurrency:
-      group: test-concurrency
-      cancel-in-progress: false
+
     runs-on: ubuntu-latest
     steps:
     - name: checkout
