@@ -2,6 +2,7 @@ name: test matrix startegy
 
 on:
   workflow_dispatch:
+  push:
     
 jobs:
   job1:
@@ -9,7 +10,12 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         image: [hello-world, alpine]
-
+        exclude:
+          - image: alpine
+            os: windows-latest
+        include:
+          - image: amd64/alpine
+            os: ubuntu-latest
     runs-on: ubuntu-latest
     steps:
     - name: docker info from ${{ matrix.os }}
