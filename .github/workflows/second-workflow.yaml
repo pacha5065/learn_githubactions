@@ -27,6 +27,7 @@ jobs:
 
     - name: shell execute
       run: |
+        sleep 50
         chmod +x shell-script.sh
         ./shell-script.sh
       
