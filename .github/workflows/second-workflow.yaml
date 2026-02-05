@@ -1,7 +1,9 @@
 name: my concourrency workflow
 
 on:
-  push
+  push:
+  workflow_dispatch:
+    
 
 jobs:
   job1:
