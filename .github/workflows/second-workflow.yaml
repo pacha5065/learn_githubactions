@@ -20,7 +20,7 @@ jobs:
 
   job2:
     needs: job1
-
+    timeout-minutes: 3
     runs-on: ubuntu-latest
     steps:
     - name: checkout
