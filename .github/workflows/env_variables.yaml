@@ -1,7 +1,7 @@
 name: env variables test
 
 on:
-    push
+    # push
 
 env:
     CONTAINER_REGISTRY: harbor

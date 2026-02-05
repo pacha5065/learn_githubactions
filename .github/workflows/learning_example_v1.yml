@@ -2,18 +2,18 @@ name: learning exmple v1
 
 on:
     workflow_dispatch:
-    push:
-        paths-ignore: 
-        - README.md
-        branches: 
-        - feature/*
-        - main
-    pull_request: 
-        branches: 
-        - main
-        types: 
-        - opened
-        - closed
+    # push:
+    #     paths-ignore: 
+    #     - README.md
+    #     branches: 
+    #     - feature/*
+    #     - main
+    # pull_request: 
+    #     branches: 
+    #     - main
+    #     types: 
+    #     - opened
+    #     - closed
 
 jobs:
     job1:

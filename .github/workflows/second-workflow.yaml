@@ -1,4 +1,4 @@
-name: my second workflow
+name: my concourrency workflow
 
 on:
   push
@@ -12,6 +12,16 @@ jobs:
 
     - name: list files
       run: ls -lrta
+
+  job2:
+    needs: job1
+    concurrency:
+      group: test-concurrency
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
 
     - name: shell execute
       run: |
