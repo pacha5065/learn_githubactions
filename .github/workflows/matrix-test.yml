@@ -5,11 +5,16 @@ on:
     
 jobs:
   job1:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        image: [hello-world, alpine]
+
     runs-on: ubuntu-latest
     steps:
-    - name: docker info
+    - name: docker info from ${{ matrix.os }}
       run: docker info
 
-    - name: docker run
+    - name: docker run from ${{ matrix.os }} for image ${{ matrix.image }}
       run: docker run hello-world
 
