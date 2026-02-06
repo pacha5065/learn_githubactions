@@ -1,6 +1,11 @@
 name: learning expressions
 
-on: push
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - '!feature/**'
 
 jobs:
   runs-on-main:
