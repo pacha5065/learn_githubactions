@@ -1,0 +1,17 @@
+
+name: test node installation
+
+on:
+  push
+
+jobs:
+  dsfdsf:
+    runs-on: ubuntu-18.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+    
+    - name: install node
+      uses: actions/node@v3
+      with:
+        node-version: 14
