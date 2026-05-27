@@ -19,6 +19,14 @@ jobs:
                 ls
                 cat README.md
             
-            - name: Generate ASCII artwork
-              run: cowsay -f tiger "Run for cover, I am dragon.. RAWR" >> dragon.txt
+            - name: Install cowsay and Generate ASCII artwork
+              run: |
+                sudo apt-get install cowsay -y
+                cowsay -f tiger "Run for cover, I am dragon.. RAWR" >> dragon.txt
+                ls
+            
+            - name: show the content of dragon.txt
+              run: |
+                ls -lrta
+                cat dragon.txt
 
