@@ -13,6 +13,5 @@ jobs:
 
             - name: Invoke shell script in workflow
               run: |
-                chmod 777 shell-script.sh
                 ./shell-script.sh
     
