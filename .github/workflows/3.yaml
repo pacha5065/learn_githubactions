@@ -16,18 +16,18 @@ jobs:
                 cowsay -f dragon "I am dragon...run for ur lives ... " >> dragon.txt
     
             - name: Upload the artifact dragon.txt
-              uses: actions/Upload-artifact@v7
+              uses: actions/Upload-artifact@v4
               with:
+                name: dragon-text-file
                 path: dragon.txt
-                archive: false
     test_job:
         needs: build_job
         runs-on: ubuntu-latest
         steps:
             - name: download artifact
-              uses: actions/download-artifact@v7
+              uses: actions/download-artifact@v4
               with:
-                name: dragon.txt
+                name: dragon-text-file
                 
             - name: verify the file existence
               run: |
@@ -39,9 +39,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: download artifact
-              uses: actions/download-artifact@v7
+              uses: actions/download-artifact@v4
               with:
-                name: dragon.txt
+                name: dragon-text-file
 
             - name: read file
               run: cat dragon.txt
