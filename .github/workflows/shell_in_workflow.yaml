@@ -1,0 +1,18 @@
+name: Invoke shell script in workflow
+
+on: 
+    - push
+    - workflow_dispatch
+
+jobs:
+    shelljob:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: checkout repo
+              run: actions/checkout@v5
+
+            - name: Invoke shell script in workflow
+              run: |
+                chmod 777 shell-script.sh
+                ./shell-script.sh
+    
