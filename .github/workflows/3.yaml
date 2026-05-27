@@ -13,7 +13,7 @@ jobs:
             - name: install cowsay and run
               run: |
                 sudo apt-get install cowsay -y
-                cowsay -f dragon "run for ur lives ... " >> dragon.txt
+                cowsay -f dragon "I am dragon...run for ur lives ... " >> dragon.txt
     
             - name: Upload the artifact dragon.txt
               uses: actions/Upload-artifact@v7
@@ -28,16 +28,22 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v7
               with:
-                path: dragon.txt
                 name: dragon-tex-file
                 
             - name: verify the file existence
-              run: grep -i "dragon" dragon.txt
+              run: |
+                ls -lrta
+                grep -i "dragon" dragon.txt
     
     deploy_job:
         needs: test_job
         runs-on: ubuntu-latest
         steps:
+            - name: download artifact
+              uses: actions/download-artifact@v7
+              with:
+                name: dragon-tex-file
+                
             - name: read file
               run: cat dragon.txt
 
