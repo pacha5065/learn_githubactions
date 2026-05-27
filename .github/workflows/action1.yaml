@@ -22,7 +22,7 @@ jobs:
             - name: Install cowsay and Generate ASCII artwork
               run: |
                 sudo apt-get install cowsay -y
-                cowsay -f tiger "Run for cover, I am dragon.. RAWR" >> dragon.txt
+                cowsay -f dragon "Run for cover, I am dragon.. RAWR" >> dragon.txt
                 ls
             
             - name: show the content of dragon.txt
