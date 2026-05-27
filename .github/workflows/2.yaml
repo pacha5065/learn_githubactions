@@ -1,9 +1,7 @@
 name: Invoke shell script in workflow
 
-on: 
-    - push
-    - workflow_dispatch
-
+on:
+  workflow_dispatch:
 jobs:
     shelljob:
         runs-on: ubuntu-24.04
