@@ -18,7 +18,6 @@ jobs:
             - name: Upload the artifact dragon.txt
               uses: actions/Upload-artifact@v7
               with:
-                name: dragon-tex-file
                 path: dragon.txt
                 archive: false
     test_job:
@@ -28,7 +27,7 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v7
               with:
-                name: dragon-tex-file
+                name: dragon.txt
                 
             - name: verify the file existence
               run: |
@@ -42,8 +41,8 @@ jobs:
             - name: download artifact
               uses: actions/download-artifact@v7
               with:
-                name: dragon-tex-file
-                
+                name: dragon.txt
+
             - name: read file
               run: cat dragon.txt
 
