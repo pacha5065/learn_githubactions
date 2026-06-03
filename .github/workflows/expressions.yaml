@@ -6,10 +6,16 @@ on:
     branches:
       - main
       - '!feature/**'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   runs-on-main:
     if: github.ref == 'refs/heads/main'
+    concurrency:
+      group: test-group
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
     - name: return github event and branch name
