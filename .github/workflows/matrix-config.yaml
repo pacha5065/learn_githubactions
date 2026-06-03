@@ -6,9 +6,6 @@ on:
       
 jobs:
     deploy:
-        concurrency:
-            group: matrix
-            cancel-in-progress: true
         strategy:
           fail-fast: false
           max-parallel: 2
