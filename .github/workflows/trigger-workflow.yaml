@@ -18,6 +18,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: deploy docker image
+        timeout-minutes: 1
         run: |
           echo docker run --username ${{vars.DOCKERUSERNAME}} with --password ${{secrets.DOCKERPASSWORD}}
-          sleep 60
+          sleep 6000
