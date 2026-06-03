@@ -6,10 +6,22 @@ on:
 
 jobs:
     docker-details:
-        runs-on: ubuntu-latest
+        strategy:
+          fail-fast: false
+          max-parallel: 1
+          matrix:
+            os: [ubuntu-latest, windows-latest]
+            image: [hello-world, alpine]
+            exclude:
+              - os: windows-latest
+                image: alpine
+            include:
+              - os: ubuntu-latest
+                image: amd64/alpine
+        runs-on: ${{matrix.os}}
         steps:
             - name: docker info
               run: docker info
             
-            - name: docker run image
-              run: docker run hello-world
+            - name: docker run image ${{matrix.image}}
+              run: docker run ${{matrix.image}}
