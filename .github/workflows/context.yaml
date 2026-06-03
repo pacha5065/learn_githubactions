@@ -1,25 +1,18 @@
-name: Context testing
-on: push
+name: github context details
+
+on:
+    push:
 
 jobs:
-  dump_contexts_to_log:
-    runs-on: ubuntu-latest
-    steps:
-      - name: runner details
-        run: echo ${{ runner.name }}
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
+    github_context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: get github context
+              env:
+                GITHUB_CONTEXT: ${{toJson(github)}}
+              run: echo $GITHUB_CONTEXT
+
+            - name: get secreat context
+              env:
+                secret_con: ${{toJson(secrets)}}
+              run: echo $secret_con
