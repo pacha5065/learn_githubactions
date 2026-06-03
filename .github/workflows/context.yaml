@@ -2,7 +2,8 @@ name: github context details
 
 on:
     push:
-
+    workflow_dispatch:
+        
 jobs:
     github_context:
         runs-on: ubuntu-latest
