@@ -2,7 +2,6 @@ name: Test trigger workflow via events
 
 on:
   workflow_dispatch:
-  push:
  
 jobs:
   docker-build:
