@@ -9,10 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build docker image
-        run:  echo docker build --username ${{vars.DOCKERUSERNAME}} with --password ${{secrets.DOCKERPASSWORD}}
+        env:
+          GITHUB_CONTEXT: ${{toJson(github)}}
+        run:  |
+          echo docker build --username ${{vars.DOCKERUSERNAME}} with --password ${{secrets.DOCKERPASSWORD}}
+          echo $GITHUB_CONTEXT
 
   docker-deploy:
-    if: github.ref == '/ref/head/main'
+    if: github.ref == '/refs/heads/main'
     runs-on: ubuntu-latest
     needs: docker-build
     concurrency:
