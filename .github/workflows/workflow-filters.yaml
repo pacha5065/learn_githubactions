@@ -15,7 +15,7 @@ on:
         types: 
           - opened
           - closed
-        
+    
     # schedule:
     #   - cron: "*/59 * * * *"
 
